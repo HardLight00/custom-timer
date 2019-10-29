@@ -1,22 +1,14 @@
-.App {
-  text-align: center;
+#app {
+    display: flex;
+    justify-content: center;
 }
 
-.App-logo {
-  height: 40vmin;
+#interval-settings,
+#timer__controllers {
+    padding: 5px;
+    margin: 10px 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
+#interval-settings__controllers {
+    margin-top: 15px;
 }

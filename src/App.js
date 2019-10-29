@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {createContext} from 'react';
+import {createStore} from "./store/slomux";
+import {reducer} from "./store/reducers";
+import Timer from "./containers/Timer";
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const IntervalContext = createContext({});
+const initialState = {currentInterval: 1};
+
+const App = () => {
+    return (
+        <div id='app'>
+            <IntervalContext.Provider value={createStore(reducer, initialState)}>
+                <Timer/>
+            </IntervalContext.Provider>
+        </div>
+    );
+};
+
+export {
+    IntervalContext
 }
 
 export default App;
