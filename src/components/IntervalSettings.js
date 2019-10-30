@@ -7,7 +7,7 @@ const IntervalSettingsComponent = props => {
 
     return <div id='interval-settings'>
         <span id='interval-settings__info'>
-            Интервал обновления секундомера: {currentInterval} сек.
+            Interval for update: {currentInterval} sec.
         </span>
         <div id="interval-settings__controllers">
             <button id='interval-settings__decrement' type='button' onClick={() => changeInterval(-1)}>-</button>
