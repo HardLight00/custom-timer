@@ -4,6 +4,8 @@ Timer has a <code>start</code>, <code>pause</code> and <code>reset</code> button
 Also you can change interval using <code>-</code> and <code>+</code> buttons.
 When timer works you will see how much time left before next update
 
+![App preview](./preview.jpg)
+
 ## Available Scripts
 
 In the project directory, you can run:
