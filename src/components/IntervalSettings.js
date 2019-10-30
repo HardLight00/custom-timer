@@ -1,6 +1,8 @@
 import React from 'react'
+import {changeInterval} from "../store/actions";
+import {connect} from "../store/slomux";
 
-export const IntervalSettingsComponent = props => {
+const IntervalSettingsComponent = props => {
     const {currentInterval, changeInterval} = props;
 
     return <div id='interval-settings'>
@@ -13,3 +15,11 @@ export const IntervalSettingsComponent = props => {
         </div>
     </div>
 };
+
+const IntervalSettings = connect(state => ({
+    currentInterval: state.currentInterval
+}), dispatch => ({
+    changeInterval: value => dispatch(changeInterval(value))
+}))(IntervalSettingsComponent);
+
+export default IntervalSettings

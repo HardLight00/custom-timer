@@ -1,8 +1,9 @@
 import React, {useCallback, useEffect, useState} from 'react'
-import IntervalSettings from '../containers/IntervalSettings'
+import IntervalSettings from './IntervalSettings'
 import './timer.css'
+import {connect} from "../store/slomux";
 
-export const TimerComponent = props => {
+const TimerComponent = props => {
     const {currentInterval} = props;
     const [isActive, setIsActive] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
@@ -56,3 +57,9 @@ export const TimerComponent = props => {
         </div>
     );
 };
+
+const Timer = connect(state => ({
+    currentInterval: state.currentInterval || 1
+}), () => {})(TimerComponent);
+
+export default Timer

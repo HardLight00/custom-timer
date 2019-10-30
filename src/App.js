@@ -1,7 +1,7 @@
 import React, {createContext} from 'react';
 import {createStore} from "./store/slomux";
 import {reducer} from "./store/reducers";
-import Timer from "./containers/Timer";
+import Timer from "./components/Timer";
 import './App.css';
 
 const IntervalContext = createContext({});
