@@ -1,3 +1,4 @@
+## Application
 This a timer with custom update interval.
 Timer has a <code>start</code>, <code>pause</code> and <code>reset</code> buttons
 Also you can change interval using <code>-</code> and <code>+</code> buttons.
@@ -6,6 +7,10 @@ When timer works you will see how much time left before next update
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `yarn install`
+
+Install dependences and make app executable
 
 ### `yarn start`
 
