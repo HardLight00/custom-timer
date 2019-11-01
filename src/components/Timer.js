@@ -39,6 +39,7 @@ const TimerComponent = props => {
     const toggle = () => setIsActive(!isActive);
 
     const reset = () => {
+        setBeforeUpdate(currentInterval);
         setCurrentTime(0);
         setIsActive(false);
     };
