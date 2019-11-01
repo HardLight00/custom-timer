@@ -11,18 +11,26 @@ export const createStore = (reducer, currentState = {}) => {
     };
 
     const subscribe = listener => listeners.push(listener);
+    const unsubscribe = listener => {
+        const index = listeners.indexOf(listener);
+        if (index !== -1)
+            listeners.splice(index, 1);
+    };
 
-    return {getState, dispatch, subscribe}
+    return {getState, dispatch, subscribe, unsubscribe}
 };
 
 export const connect = (mapStateToProps, mapDispatchToProps) =>
     Component => props => {
         const context = useContext(IntervalContext);
-        const {getState, dispatch, subscribe} = context;
+        const {getState, dispatch, subscribe, unsubscribe} = context;
 
         const [, updateState] = useState(null);
         const forceUpdate = useCallback(() => updateState({}), []);
-        useEffect(() => subscribe(forceUpdate), [forceUpdate, subscribe]);
+        useEffect(() => {
+            subscribe(forceUpdate);
+            return () => unsubscribe(forceUpdate);
+        }, [forceUpdate, subscribe]);
 
         return (
             <Component
